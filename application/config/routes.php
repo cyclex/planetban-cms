@@ -61,4 +61,5 @@ $route['summary'] = 'page/report_c/summary_aggregate';
 $route['summary/(.+)'] = 'page/Report_c/detail_summary/$1';
 $route['user'] = 'page/Report_c/user_account';
 $route['logout'] = 'Login_c/logout';
+$route['login'] = 'Login_c/check_login';
 $route['change_password'] = 'User_c/update_password';

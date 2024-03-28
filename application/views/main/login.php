@@ -32,7 +32,7 @@
             <?php echo $notif; ?>
         </div>
     <?php } ?>
-    <form action="<?php echo base_url('Login_c/check_login'); ?>" method="post">
+    <form action="<?php echo base_url('login'); ?>" method="post">
       <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Username" required name="username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
