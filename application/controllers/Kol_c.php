@@ -111,7 +111,7 @@ class Kol_c extends CI_Controller
             "file" => $upload['full_path']
         ]);
 
-        $data = $this->curl->curl_post_json(serverHost."/v1/kol", $payload);
+        $data = $this->curl->curl_post_json(serverHostCms."/v1/kol", $payload);
         $obj = json_decode($data, true);
         
         if ($obj['status']){

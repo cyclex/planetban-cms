@@ -17,6 +17,7 @@ switch ($serverName){
     case 'localhost':
         $ip = 'http://localhost:8080/';
         $serverHost = 'host.docker.internal:8085';
+        $serverHostCms = 'http://127.0.0.1:3310';
         $timeLimitExecution = '30';
         break;
 
@@ -25,6 +26,7 @@ switch ($serverName){
     case 'planetban':
         $ip = $http . $_SERVER['SERVER_NAME'] . '/';
         $serverHost = 'http://127.0.0.1:3310';
+        $serverHostCms = 'http://127.0.0.1:3310';
         $timeLimitExecution = '30';
         break;
 
@@ -32,6 +34,7 @@ switch ($serverName){
     default:
         $ip = 'http://localhost:8080/';
         $serverHost = 'host.docker.internal:8085';
+        $serverHostCms = 'http://127.0.0.1:3310';
         $timeLimitExecution = '30';
         break;
 }
@@ -43,6 +46,7 @@ define('base_assets_image', $ip . 'assets/image/');
 define('current_time', date('Y-m-d H:i:s'));
 define('timeLimitExecution', $timeLimitExecution);
 define('serverHost', $serverHost);
+define('serverHostCms', $serverHostCms)
 
 /*
 |--------------------------------------------------------------------------
