@@ -46,7 +46,7 @@ define('base_assets_image', $ip . 'assets/image/');
 define('current_time', date('Y-m-d H:i:s'));
 define('timeLimitExecution', $timeLimitExecution);
 define('serverHost', $serverHost);
-define('serverHostCms', $serverHostCms)
+define('serverHostCms', $serverHostCms);
 
 /*
 |--------------------------------------------------------------------------
