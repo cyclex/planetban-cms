@@ -209,7 +209,7 @@
                     var btn = "";
                     var btnDelete = "";
                     var btnEdit = '<a data-id="' + row.id + '" data-username="' + row.username + '" data-level="' + row.level + '" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#editUser">Edit</a> ';
-                    if row.username != '<?php echo $this->session->userdata('USERNAME'); ?>'{
+                    if (row.username != '<?php echo $this->session->userdata('USERNAME'); ?>'){
                         var btnDelete = '<a class="btn btn-xs btn-danger" onclick="return confirm('+msg+')" href="<?php echo base_url('User_c/delete/'); ?>'+row.id+'">Delete</a>';
                     }
                     
