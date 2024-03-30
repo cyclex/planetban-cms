@@ -40,7 +40,7 @@
             <div class="box-body table-responsive cs2">
             
             <?php if ($isAdmin){
-                echo "<button class='btn btn-success pull-right' data-toggle='modal' data-target='#newKol'>Create Kol</button> <button class='btn btn-default pull-right' style='margin-left:10px' data-toggle='modal' data-target='#importKol'>Upload Kol</button> ";
+                echo "<button class='btn btn-success pull-right' data-toggle='modal' data-target='#newKol' style='margin-left: 10px;'>Create Kol</button> <button class='btn btn-default pull-right' style='margin-left:10px' data-toggle='modal' data-target='#importKol'>Upload Kol</button> ";
                 
             } ?>
                 <table class="table table-striped table-bordered nowrap" id="table" style="width: 100%">
