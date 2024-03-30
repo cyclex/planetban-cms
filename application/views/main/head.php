@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function () {
             $('.sidebar-menu').tree();
-            $("input").val().toUpperCase();
+            // $("input").val().toUpperCase();
             $('a[href="http://localhost' + this.location.pathname + '"]').parents().addClass('active');
         })
 
@@ -69,7 +69,7 @@
     </script>
 
     <style type="text/css">
-        input{text-transform: uppercase}
+        /* input{text-transform: uppercase} */
 
         tfoot input {
             width: 100%;
