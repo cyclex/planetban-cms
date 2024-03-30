@@ -35,7 +35,6 @@
             $data = array(
                 'page'   => 'main/dashboard',
                 'menu'   => 'Dashboard',
-                'access' => $_SESSION['ACCESS'],
                 'notif'  => $this->session->flashdata('notif'),
                 'isSuperAdmin' => $isSuperAdmin
             );

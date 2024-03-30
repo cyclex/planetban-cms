@@ -21,7 +21,6 @@ class Report_c extends CI_Controller
         $data = array(
             'page'   => 'page/report/campaign',
             'menu'   => 'List Campaign',
-            'access' => $_SESSION['ACCESS'],
             'notif'  => $this->session->flashdata('notif'),
             'isAdmin' => $isAdmin,
             'isSuperAdmin' => $isSuperAdmin
@@ -36,7 +35,6 @@ class Report_c extends CI_Controller
         $data = array(
             'page'   => 'page/report/detail',
             'menu'   => 'Detail Campaign',
-            'access' => $_SESSION['ACCESS'],
             'notif'  => $this->session->flashdata('notif'),
             'campaign_id' => $campaignID,
             'isAdmin' => $isAdmin,
@@ -51,7 +49,6 @@ class Report_c extends CI_Controller
         $data = array(
             'page'   => 'page/report/summary_aggregate',
             'menu'   => 'Report URL Tracker',
-            'access' => $_SESSION['ACCESS'],
             'notif'  => $this->session->flashdata('notif'),
             'isSuperAdmin' => $isSuperAdmin
         );
@@ -64,7 +61,6 @@ class Report_c extends CI_Controller
         $data = array(
             'page'   => 'page/report/detail_summary',
             'menu'   => 'Detail URL Tracker',
-            'access' => $_SESSION['ACCESS'],
             'notif'  => $this->session->flashdata('notif'),
             'kol_id' => $kolID,
             'isSuperAdmin' => $isSuperAdmin
@@ -78,7 +74,6 @@ class Report_c extends CI_Controller
         $data = array(
             'page'   => 'page/report/users',
             'menu'   => 'User Accounts',
-            'access' => $_SESSION['ACCESS'],
             'notif'  => $this->session->flashdata('notif'),
             'isSuperAdmin' => $isSuperAdmin
         );
