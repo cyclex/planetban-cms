@@ -55,7 +55,11 @@ class Campaign_c extends CI_Controller
         $discProductBan = $_POST['disc_product_ban'];
         $productName = $_POST['product_name'];
 
-        if ($endDate > time()){
+        if ($startDate >= $endDate ){
+            $obj = ["status" => false, "message" => "waktu campaign tidak valid"];   
+        } else if ($endDate <= time()){
+            $obj = ["status" => false, "message" => "waktu campaign sudah lewat"];
+        } else {
             $payload = json_encode([
                 "name" => $campaignName,
                 "startDate" => $startDate,
@@ -67,9 +71,6 @@ class Campaign_c extends CI_Controller
     
             $data = $this->curl->curl_put(serverHost."/v1/campaign/".$id, $payload);
             $obj = json_decode($data, true);
-
-        } else {
-            $obj = ["status" => false, "message" => "waktu campaign sudah lewat"];
         }
         
         if ($obj['status']){
@@ -102,7 +103,11 @@ class Campaign_c extends CI_Controller
         $discProductBan = $_POST['disc_product_ban'];
         $productName = $_POST['product_name'];
 
-        if ($endDate > time()){
+        if ($startDate >= $endDate ){
+            $obj = ["status" => false, "message" => "waktu campaign tidak valid"];   
+        } else if ($endDate <= time()){
+            $obj = ["status" => false, "message" => "waktu campaign sudah lewat"];
+        } else {
             $payload = json_encode([
                 "name" => $campaignName,
                 "startDate" => $startDate,
@@ -114,9 +119,6 @@ class Campaign_c extends CI_Controller
     
             $data = $this->curl->curl_post_json(serverHost."/v1/campaign", $payload);
             $obj = json_decode($data, true);
-
-        } else {
-            $obj = ["status" => false, "message" => "waktu campaign sudah lewat"];
         }
         
         if ($obj['status']){
