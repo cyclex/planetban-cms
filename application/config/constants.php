@@ -23,9 +23,9 @@ switch ($serverName){
 
 
     #Production
-    case 'planetban':
+    case 'planetbancms.coster.id':
         $ip = $http . $_SERVER['SERVER_NAME'] . '/';
-        $serverHost = 'http://127.0.0.1:3310';
+        $serverHost = 'http://172.20.10.2:8091';
         $serverHostCms = 'http://127.0.0.1:3310';
         $timeLimitExecution = '30';
         break;
