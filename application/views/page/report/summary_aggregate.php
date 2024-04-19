@@ -46,7 +46,7 @@
                         <input type='text' readonly id='to' class="datepicker form-control" data-date-end-date="0d" placeholder='To date'>
                     </div>
                     <div class="col-sm-5">
-                        <input type='text' id='keyword' class="form-control" placeholder='Kol Name'>
+                        <input type='text' id='keyword' class="form-control" placeholder='Campaign Name'>
                     </div>
                     <div class="col-sm-3">
                         <button id="btn_search" type="button" class="btn btn-info">Search</button>
