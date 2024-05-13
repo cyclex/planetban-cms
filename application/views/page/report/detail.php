@@ -53,6 +53,7 @@
                             <th>Ads Platform</th>
                             <th>URL Link</th>
                             <th>Created At</th>
+                            <th>Status</th>
                             <?php if ($isAdmin) { echo "<th>Action</th>"; }?>
                         </tr>
                     </thead>
@@ -278,6 +279,9 @@
                 },
                 {
                     data: 'createdAt',orderable: true
+                },
+                {
+                    data: 'status',orderable: true
                 }
             ],
             "dom": 'lBfrtip',
@@ -290,7 +294,7 @@
                     "messageBottom": '',
                     "orientation": 'landscape',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7],
                     }
                 }
             ],
@@ -298,14 +302,20 @@
             "scrollCollapse": true,
             <?php if ($isAdmin) { ?> 
             "columnDefs": [{
-                "targets": 7,
+                "targets": 8,
                 "render": function (data, type, row, meta) {
 
                     var btn = "";
-                    var btnEdit = '<a data-id="' + row.id + '" data-voucher="' + row.voucherCode + '" data-source="' + row.source + '" data-name="' + row.kolName + '" data-ads="'+row.adsPlatform+'" data-campaignid="'+row.campaignID+'" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#editKol">Edit</a> ';
-                    var btnDelete = '<a data-id="' + row.id + '" class="btn btn-xs btn-danger" onclick="return confirm('+msg+')" href="<?php echo base_url('Kol_c/delete/'); ?>'+row.id+'/'+row.campaignID+'">Delete</a>';
+                    if (row.status=="Tersedia"){
+                        var btnEdit = '<a data-id="' + row.id + '" data-voucher="' + row.voucherCode + '" data-source="' + row.source + '" data-name="' + row.kolName + '" data-ads="'+row.adsPlatform+'" data-campaignid="'+row.campaignID+'" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#editKol">Edit</a> ';
+                        var btnDelete = '<a data-id="' + row.id + '" class="btn btn-xs btn-danger" onclick="return confirm('+msg+')" href="<?php echo base_url('Kol_c/delete/'); ?>'+row.id+'/'+row.campaignID+'">Delete</a>';
+                        return btn.concat(btnEdit, btnDelete);
+                    } else {
+                        var btnEdit = '<a class="btn btn-xs btn-warning disabled">Edit</a> ';
+                        var btnDelete = '<a class="btn btn-xs btn-danger disabled">Delete</a>';
+                        return btn.concat(btnEdit, btnDelete);
+                    }
                     
-                    return btn.concat(btnEdit, btnDelete);
                 }
             }],
             <?php } ?>

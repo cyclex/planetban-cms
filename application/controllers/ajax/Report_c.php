@@ -158,9 +158,10 @@ class Report_c extends CI_Controller
             "from" => $from,
             "to" => $to,
             "offset" => intval(($_REQUEST['start'] ? $_REQUEST['start'] : "0")),
-            "keyword" => $kol_id,
+            "keyword" => isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) :"",
             "sort" => $sort,
-            "limit" => intval(($_REQUEST['length'] ? $_REQUEST['length'] : "0"))
+            "limit" => intval(($_REQUEST['length'] ? $_REQUEST['length'] : "0")),
+            "column" => $kol_id
         ]);
 
         $draw = isset($_POST['draw']) ?: 0;

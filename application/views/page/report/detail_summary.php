@@ -35,6 +35,20 @@
             </div>
         <?php } ?>
 
+        <div class="box">
+            <div class="box-body">
+                <div class="row">
+                <div class="col-sm-4">
+                        <input type='text' id='keyword' class="form-control" placeholder='Code'>
+                    </div>
+                    <div class="col-sm-8">
+                        <button id="btn_search" type="button" class="btn btn-info">Search</button>
+                        <button id="btn_clear" type="button" class="btn btn-default">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Default box -->
         <div class="box">
             <div class="box-body table-responsive cs2">
@@ -75,7 +89,20 @@
             "processing": true,
             "paging":true,
             "ajax": {
-                "url": "<?php echo base_url('ajax/Report_c/getDataDetailSummary/'.$kol_id); ?>"
+                "url": "<?php echo base_url('ajax/Report_c/getDataDetailSummary/'.$kol_id); ?>",
+                'data': function(data) {
+                    // Read values
+                    var from_date = $("#from").val();
+                    var to_date = $("#to").val();
+                    var column = $("#column").val();
+                    var keyword = $("#keyword").val();
+
+                    // Append to data
+                    data.from = from_date;
+                    data.to = to_date;
+                    data.column = column;
+                    data.keyword = keyword;
+                },
             },
             "lengthMenu": [[50, 100, 200, 500, -1], [50, 100, 200, 500, "All"]],
             "deferRender": true,
@@ -124,10 +151,29 @@
                     }
                 }
             ],
-            "scrollY": '60vh'
+            "scrollY": '60vh',
+            "rowCallback": function(row, data, index) {
+                var pageInfo = table.page.info();
+                var pageNumber = pageInfo.page;
+                var pageSize = pageInfo.length;
+                var rowNumber = pageNumber * pageSize + index + 1;
+                $('td:eq(0)', row).html(rowNumber);
+            }
         });
 
         table.draw();
+
+        $('#btn_search').click(function() {
+            if ($('#column').val() == ""){
+                alert("Please choose your options");
+            }
+            $('#table').DataTable().ajax.reload();
+        });
+
+        $('#btn_clear').click(function() {
+            $('#column').val("");
+            $('#keyword').val("");
+        });
 
     });
 </script>

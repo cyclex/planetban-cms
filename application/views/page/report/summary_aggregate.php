@@ -57,7 +57,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Code</th>
+                            <!-- <th>Code</th> -->
                             <th>Source</th>
                             <th>Kol Name</th>
                             <th>Ads Platform</th>
@@ -115,9 +115,9 @@
             "columns": [{
                     data: 'rNum'
                 },
-                {
-                    data: 'voucherCode',orderable: false
-                },
+                // {
+                //     data: 'voucherCode',orderable: false
+                // },
                 {
                     data: 'source',orderable: false
                 },
@@ -144,14 +144,14 @@
                     "messageBottom": '',
                     "orientation": 'landscape',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5],
                     }
                 }
             ],
             "scrollY": '60vh',
             "scrollCollapse": true,
             "columnDefs": [{
-                "targets": 7,
+                "targets": 6,
                 "render": function (data, type, row, meta) {
 
                     var btn = '<a data-id="' + row.kolID + '" class="btn btn-xs btn-info" href="<?php echo base_url('summary/'); ?>'+row.kolID+'">View</a>';
