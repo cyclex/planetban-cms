@@ -62,6 +62,7 @@
                             <th>Kol Name</th>
                             <th>Ads Platform</th>
                             <th>Campaign Name</th>
+                            <th>Click Rate</th>
                             <th>Total Received</th>
                             <th>Action</th>
                         </tr>
@@ -109,7 +110,7 @@
             "deferRender": true,
             "scrollX": true,
             "order": [
-                [5, "desc"]
+                [6, "desc"]
             ],
             "pagingType": "simple_numbers",
             "columns": [{
@@ -132,6 +133,9 @@
                 },
                 {
                     data: 'totalReceived',orderable: false
+                },
+                {
+                    data: 'totalReceived',orderable: false
                 }
             ],
             "dom": 'lBfrtip',
@@ -144,14 +148,14 @@
                     "messageBottom": '',
                     "orientation": 'landscape',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5],
+                        columns: [0, 1, 2, 3, 4, 5, 6],
                     }
                 }
             ],
             "scrollY": '60vh',
             "scrollCollapse": true,
             "columnDefs": [{
-                "targets": 6,
+                "targets": 7,
                 "render": function (data, type, row, meta) {
 
                     var btn = '<a data-id="' + row.kolID + '" class="btn btn-xs btn-info" href="<?php echo base_url('summary/'); ?>'+row.kolID+'">View</a>';
